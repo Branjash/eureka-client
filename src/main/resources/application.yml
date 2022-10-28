@@ -1,0 +1,13 @@
+app-config:
+    port: 8088
+    service-address: eureka-service:8761
+
+---
+server:
+  port: ${app-config.port}
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${app-config.service-address}/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 10
