@@ -1,34 +1,11 @@
-app-config:
-    port: 8088
-    eureka-service-address: eureka-service:8761
-    resource-service-address: resource-service:8081
-    songs-service-address: songs-service:8082
-
 spring:
+
   application:
-    name: eureka- api-gateway
+    name: service-client
 
   cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
-        - id: resource-service
-          uri: http://${app-config.resource-service-address}/
-          predicates:
-            - Path=/resources/**
+    config:
+      uri: http://service-configurations:8888
 
-        - id: songs-service
-          uri: http://${app-config.songs-service-address}/
-          predicates:
-            - Path=/songs/**
----
-server:
-  port: ${app-config.port}
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${app-config.eureka-service-address}/eureka
+  config:
+    import: optional:configserver:http://service-configurations:8888
