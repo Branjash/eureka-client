@@ -1,13 +1,34 @@
 app-config:
     port: 8088
-    service-address: eureka-service:8761
+    eureka-service-address: eureka-service:8761
+    resource-service-address: resource-service:8081
+    songs-service-address: songs-service:8082
 
+spring:
+  application:
+    name: eureka- api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: resource-service
+          uri: http://${app-config.resource-service-address}/
+          predicates:
+            - Path=/resources/**
+
+        - id: songs-service
+          uri: http://${app-config.songs-service-address}/
+          predicates:
+            - Path=/songs/**
 ---
 server:
   port: ${app-config.port}
+
 eureka:
   client:
     service-url:
-      defaultZone: http://${app-config.service-address}/eureka
-  instance:
-    lease-renewal-interval-in-seconds: 10
+      defaultZone: http://${app-config.eureka-service-address}/eureka
