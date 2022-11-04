@@ -20,7 +20,7 @@
      docker build -t eureka-client-local-image .
      ```
      
-  4. Container can/will be started once [resource-processor-service](https://github.com/Branjash/resource-processor) docker-compose file is triggered  
+  4. Container can/will be started once [resource-processor-service](https://github.com/Branjash/resource-processor) `docker-compose` file is triggered  
     
   5. Finally you can chech if the containers are running and check logs to if they are running properly
   
