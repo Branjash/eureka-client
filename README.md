@@ -19,8 +19,10 @@
      ```bash
      docker build -t eureka-client-local-image .
      ```
+     
+  4. Container can/will be started once [resource-processor-service](https://github.com/Branjash/resource-processor) docker-compose file is triggered  
     
-  4. Finally you can chech if the containers are running and check logs to if they are running properly
+  5. Finally you can chech if the containers are running and check logs to if they are running properly
   
      - Check is application working by navigation through your browser to URL - `http://localhost:8088/service-instances/service-client` <br>
        You should see something like the image bellow, once the [Eureka Server](https://github.com/Branjash/eureka-server) is running properly <br>
@@ -28,7 +30,7 @@
        <img width="270" alt="Capture" src="https://user-images.githubusercontent.com/115099821/199920412-32d970eb-e982-4092-b2fc-5f0cbdbd8fe2.PNG">
 
   
-  5. Now, if [resource-service](https://github.com/Branjash/resource-service) and [songs-service](https://github.com/Branjash/songs-service) are running as docker containers <br>
+  6. Now, if [resource-service](https://github.com/Branjash/resource-service) and [songs-service](https://github.com/Branjash/songs-service) are running as docker containers <br>
      you should be able to access them through the same host (**eureka-client**) for example:
      
         - For `songs-service` REST endpoints:  
