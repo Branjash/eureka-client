@@ -3,6 +3,11 @@
 ## Netflix Eureka client API Gateway aplication using `Spring Boot`
 ### Enabling API Gateway for [resource-service](https://github.com/Branjash/resource-service) and [songs-service](https://github.com/Branjash/songs-service) to be used through [resource-processor-service](https://github.com/Branjash/resource-processor)
 
+### Prerequisites:
+
+  - Docker engine installed
+  - OPTIONAL: `maven` installed, use embbeded wrapper if not
+
 ### Startup
 
   1. Since it is a maven project, first build it using your local installed maven or using maven wrapper inside the project
@@ -13,7 +18,6 @@
       ```bash
       mvnw clean package
       ```
-     NOTE! - **prerequiste is that you install docker engine on your machine**
   
   2. Inside project root, build local docker image of the project(project already contains prepared `Dockerfile`
      ```bash
