@@ -6,6 +6,7 @@
 ### Prerequisites:
 
   - Docker engine installed
+  - `docker-compose` from resource-service be triggered first for additional services required
   - OPTIONAL: `maven` installed, use embbeded wrapper if not
 
 ### Startup
